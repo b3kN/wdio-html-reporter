@@ -75,7 +75,6 @@ export class ReportData {
     title: string;
     reportFile: string ;
     browserName: string;
-    customVideoName?: string;
     constructor(title: string, info: RunnerStats, suites: SuiteStats[], metrics: Metrics, reportFile:string, browserName :string) {
         this.info = info;
         this.metrics = metrics;
