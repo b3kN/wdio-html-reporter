@@ -102,7 +102,7 @@
                     {% endif %}
                     {% if suites %}
                         {% for suite in suites %}
-                            {{ renderSuite(suite) }}
+                            {{ renderSuite(suite, customVideoName) }}
                         {% endfor %}
                     {% endif %}
                 </table>

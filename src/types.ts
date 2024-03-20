@@ -4,6 +4,7 @@ import type { Reporters, Capabilities, Options } from '@wdio/types';
 
 export class HtmlReporterOptions implements Reporters.Options  {
     outputDir: string;
+    customVideoName?: string | undefined;
     filename: string;
     reportTitle: string;
     showInBrowser?: boolean | undefined;
@@ -74,6 +75,7 @@ export class ReportData {
     title: string;
     reportFile: string ;
     browserName: string;
+    customVideoName?: string;
     constructor(title: string, info: RunnerStats, suites: SuiteStats[], metrics: Metrics, reportFile:string, browserName :string) {
         this.info = info;
         this.metrics = metrics;
