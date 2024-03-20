@@ -407,12 +407,10 @@ span.pending    {
 .screenshotWrapper {
     max-width: 1024px;
     margin-left:24px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    display: flex;
+    justify-content: center;
 }
 
-.screenshot {
-}
 .screenshot-small {
     height: 20%;
     width: 20%;
