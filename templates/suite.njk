@@ -1,6 +1,29 @@
 {% from "tests.njk" import renderTests %}
 {% macro renderSuite(suite, videoName) %}
 
+{% if videoName %}
+    <table class="table table-bordered table-suite">
+        <tr class="suite-header">
+            <td colspan="2">
+                <h3>
+                    <span style="margin: 2px; padding: 1px" class="glyphicon glyphicon-chevron-up">&nbsp;</span>Screen Recording
+                </h3>
+            </td>
+        </tr>
+
+        <tr class="test-row video">
+            <td colspan="2">
+                <div class="videoWrapper">
+                    <video controls class="video">
+                        <source src="{{ renderVideo(videoName) }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </td>
+        </tr>
+    </table>
+{% endif %}
+
 {% if suite.type %}
 {% if suite.type.includes('suite') or suite.type.includes('feature') or suite.type.includes('scenario') %}
 <table class="table table-bordered table-suite">
@@ -56,26 +79,6 @@
     {% for aSuite in suite.suites %}
         {{ renderSuite(aSuite) }}
     {% endfor %}
-
-    {% if videoName %}
-        <tr>
-            <td>Screen Recording</td>
-            <td>
-                <table class="table table-bordered">
-                    <tr class="test-row video">
-                        <td colspan="2">
-                            <div class="videoWrapper">
-                                <video controls class="video">
-                                    <source src="{{ renderVideo(videoName) }}" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    {% endif %}
 
 </table>
 {% endif %}
