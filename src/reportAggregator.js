@@ -151,7 +151,7 @@ class ReportAggregator {
         }
         this.LOG.info("Aggregated " + specs.length + " specs, " + suites.length + " suites, ");
         this.reportFile = path.join(process.cwd(), this.options.outputDir, this.options.filename);
-        let reportData = new ReportData(this.options.reportTitle, this.reports[0].info, suites, metrics, this.reportFile, this.options.browserName);
+        let reportData = new ReportData(this.options.reportTitle, this.reports[0].info, suites, metrics, this.reportFile, this.options.browserName, this.options.customVideoName ? this.options.customVideoName : null);
         try {
             await JsonGenerator.jsonOutput(this.options, reportData);
             await HtmlGenerator.htmlOutput(this.options, reportData);

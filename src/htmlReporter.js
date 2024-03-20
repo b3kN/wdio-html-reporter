@@ -160,7 +160,7 @@ export default class HtmlReporter extends WDIOReporter {
         this.metrics.duration = runner._duration;
         let suites = this.filterChildSuites();
         let reportFile = path.join(process.cwd(), this.options.outputDir, encodeURIComponent(this._currentSuiteUid), encodeURIComponent(this._currentCid), this.options.filename);
-        let reportData = new ReportData(this.options.reportTitle, runner, suites, this.metrics, reportFile, this.options.browserName);
+        let reportData = new ReportData(this.options.reportTitle, runner, suites, this.metrics, reportFile, this.options.browserName, this.options.customVideoName ? this.options.customVideoName : null);
         await this.reportGenerator?.createReport(reportData);
     }
     getSuite(uid) {

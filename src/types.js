@@ -1,6 +1,7 @@
 export class HtmlReporterOptions {
     constructor() {
         this.outputDir = 'reports/html-reports/';
+        this.customVideoName = 'screen-recording.mp4';
         this.filename = 'report.html';
         this.reportTitle = 'Test Report Title';
         this.showInBrowser = false;
@@ -31,12 +32,13 @@ export class InternalReportEvent {
     }
 }
 export class ReportData {
-    constructor(title, info, suites, metrics, reportFile, browserName) {
+    constructor(title, info, suites, metrics, reportFile, browserName, customVideoName) {
         this.info = info;
         this.metrics = metrics;
         this.title = title;
         this.suites = suites;
         this.reportFile = reportFile;
         this.browserName = browserName;
+        this.customVideoName = customVideoName;
     }
 }

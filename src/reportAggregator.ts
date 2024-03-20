@@ -173,7 +173,8 @@ class ReportAggregator {
             suites,
             metrics,
             this.reportFile,
-            this.options.browserName)
+            this.options.browserName,
+            this.options.customVideoName ? this.options.customVideoName : null)
 
         try {
             await JsonGenerator.jsonOutput(this.options,reportData) ;

@@ -208,7 +208,8 @@ export default class HtmlReporter extends WDIOReporter {
             suites,
             this.metrics,
             reportFile,
-            this.options.browserName);
+            this.options.browserName,
+            this.options.customVideoName ? this.options.customVideoName : null);
        await this.reportGenerator?.createReport(reportData) ;
 
     }

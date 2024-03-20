@@ -75,12 +75,14 @@ export class ReportData {
     title: string;
     reportFile: string ;
     browserName: string;
-    constructor(title: string, info: RunnerStats, suites: SuiteStats[], metrics: Metrics, reportFile:string, browserName :string) {
+    customVideoName: string | null;
+    constructor(title: string, info: RunnerStats, suites: SuiteStats[], metrics: Metrics, reportFile:string, browserName :string, customVideoName: string | null) {
         this.info = info;
         this.metrics = metrics;
         this.title = title;
         this.suites = suites;
         this.reportFile = reportFile;
         this.browserName = browserName;
+        this.customVideoName = customVideoName;
     }
 }
