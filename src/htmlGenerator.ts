@@ -65,8 +65,8 @@ class HtmlGenerator {
                 }
             });
             environment.addGlobal('renderVideo', function (videoCaptureFile: string) {
-
-                let relPath =  path.relative(reportOptions.outputDir,videoCaptureFile).split(path.sep).join(path.posix.sep);
+                const videoFile = `${reportOptions.outputDir}/${videoCaptureFile}`;
+                let relPath =  path.relative(reportOptions.outputDir,videoFile).split(path.sep).join(path.posix.sep);
                 try {
                    HtmlGenerator.LOG.debug("Video Relative Path: " + relPath);
                     return relPath ;
