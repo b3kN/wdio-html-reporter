@@ -179,7 +179,11 @@ export default class HtmlReporter extends WDIOReporter {
 
     //this is a hack to get around lack of onScreenshot event
     onAfterCommand(command: AfterCommandArgs) {
+        this.LOG.info("onAfterCommand: Triggered");
         if (this.options.useOnAfterCommandForScreenshot) {
+            this.LOG.info("onAfterCommand: useOnAfterCommandForScreenshot TRUE");
+            this.LOG.info("onAfterCommand", command.result.value);
+            this.LOG.info("onAfterCommand: is screenshot?", this.isScreenshotCommand(command));
             if (this.isScreenshotCommand(command) && command.result.value) {
                 let timestamp = dayjs().format('YYYYMMDD-HHmmss.SSS');
                 const filepath = path.join(this.options.outputDir, '/screenshots/', encodeURIComponent(this._currentCid), timestamp, this.options.filename + '.png');
