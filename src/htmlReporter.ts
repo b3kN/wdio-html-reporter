@@ -20,6 +20,9 @@ import logger from '@wdio/logger' ;
 let reportProxy = new ReportEvents();
 const timeFormat = "YYYY-MM-DDTHH:mm:ss.SSS[Z]";
 
+import Convert from 'ansi-to-html';
+const convert = new Convert();
+
 export default class HtmlReporter extends WDIOReporter {
     options: HtmlReporterOptions;
     defaultTestIndent: string;
@@ -240,11 +243,13 @@ export default class HtmlReporter extends WDIOReporter {
             for (let i = test.errorIndex; i < test.errors.length; i++) {
                 let errorObj = test.errors[i];
                 let stack = test.errors[i].stack;
-                if (stack && stack.includes("AssertionError")) {
+                let message = test.errors[i].message.split("      \n").shift();
+                if (message && stack && stack.includes("AssertionError")) {
                     errorObj = {
                         //@ts-ignore
-                        message: test.errors[i].message.split("      \n").shift(),
-                        stack: test.errors[i].stack,
+                        name: test.errors[i].name,
+                        message: convert.toHtml(message),
+                        stack: convert.toHtml(stack),
                     };
                 }
                 //@ts-ignore
