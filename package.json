@@ -44,6 +44,7 @@
   "homepage": "http://github.com/rpii/wdio-html-reporter#readme",
   "dependencies": {
     "@rpii/wdio-report-events": "^8.0.2",
+    "ansi-to-html": "^0.7.2",
     "big-json": "^3.2.0",
     "copyfiles": "^2.3.0",
     "dayjs": "^1.11.9",
@@ -61,7 +62,6 @@
     "@wdio/cli": "^8.15.10",
     "@wdio/logger": "^8.11.0",
     "@wdio/reporter": "8.15.10",
-    "ansi-to-html": "^0.7.2",
     "chai": "^4.3.4",
     "concat": "^1.0.3",
     "mocha": "^10.2.0",
